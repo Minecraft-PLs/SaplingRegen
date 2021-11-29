@@ -1,0 +1,10 @@
+main: pl.grzywniak.saplingregen.SaplingRegen
+name: SaplingRegen
+version: 2.3
+author: Dawid (xCraftRayX) Grzywniak.pl
+website: http://mines.pl
+api-version: 1.13
+
+commands:
+  sapling:
+    description: Sapling regeneration /sapling <set, remove>
