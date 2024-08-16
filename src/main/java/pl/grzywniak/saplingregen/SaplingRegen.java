@@ -18,7 +18,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class SaplingRegen extends JavaPlugin implements Listener
 {
 	private static SaplingRegen instance;
-	private boolean warnOnBreakTreeIsEnabled;
 	private static Config cfg = new Config();
 	public HashMap<Integer, Location> saplingList = new HashMap<Integer, Location>();
 	
@@ -163,15 +162,15 @@ public class SaplingRegen extends JavaPlugin implements Listener
 					}
 				}
             }
-		}, 0, 20 * Config.timer);
+		}, 0, 20 * cfg.timer);
 	}
 
 	@EventHandler
 	public void onBlockBreak(BlockBreakEvent e)
 	{
-		if(warnOnBreakTreeIsEnabled && e.getBlock().getType().toString().contains("SAPLING") && !e.getBlock().getType().toString().contains("POTTED"))
+		if(cfg.messageAfterDestroyingSaplings && e.getBlock().getType().toString().contains("SAPLING") && !e.getBlock().getType().toString().contains("POTTED"))
 		{
-			e.getPlayer().sendMessage(Config.textOfThisMessage);
+			e.getPlayer().sendMessage(cfg.textOfThisMessage);
 		}
 	}
 }

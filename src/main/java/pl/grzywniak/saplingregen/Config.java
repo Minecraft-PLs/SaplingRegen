@@ -21,9 +21,9 @@ public class Config
 	final public static File locations = new File("plugins/SaplingRegen/Locations.yml");
 	final public static File config = new File("plugins/SaplingRegen/Config.yml");
 	
-	public static boolean messageAfterDestroyingSaplings;
-	public static String textOfThisMessage;
-	public static int timer;
+	public boolean messageAfterDestroyingSaplings;
+	public String textOfThisMessage;
+	public int timer;
 	
 	public void createDefaultFiles()
 	{
@@ -70,13 +70,14 @@ public class Config
 		getVariables();
 	}
 	
-	public static void getVariables()
+	public void getVariables()
 	{
 		FileConfiguration conf = YamlConfiguration.loadConfiguration(config);
 		
 		messageAfterDestroyingSaplings = conf.getBoolean("Config.MessageAfterDestroyingSaplings");
 		textOfThisMessage = conf.getString("Config.TextOfThisMessage");
 		timer = conf.getInt("Config.TimerInSec");
+		
 	}
 	
 	public static HashMap<Integer, Location> getLocations()
